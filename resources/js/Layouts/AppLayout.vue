@@ -84,7 +84,7 @@ function logout() {
                     <div class="text-lg font-bold">Payroll Secure</div>
                     <div class="mt-1 text-xs text-slate-300">Laravel + Inertia + Vue</div>
                 </div>
-                <button
+                <!-- <button
                     type="button"
                     class="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-white/10 text-white transition hover:bg-white/20"
                     aria-label="Tutup sidebar"
@@ -92,7 +92,7 @@ function logout() {
                     @click="closeSidebar"
                 >
                     <X class="h-4 w-4" />
-                </button>
+                </button> -->
             </div>
 
             <nav class="mt-6 space-y-1">
