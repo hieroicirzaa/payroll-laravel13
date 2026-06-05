@@ -1,0 +1,87 @@
+{
+    "name": "premium-portal/payroll-laravel13-inertia",
+    "type": "project",
+    "description": "Laravel 13 + Inertia.js + Vue 3 + Tailwind Payroll System with PostgreSQL, role-based CRUD, secure file manager, payroll, SPT, and dummy data.",
+    "keywords": [
+        "laravel",
+        "inertia",
+        "vue",
+        "tailwind",
+        "payroll",
+        "postgresql"
+    ],
+    "license": "MIT",
+    "require": {
+        "dompdf/dompdf": "^3.1",
+        "guzzlehttp/guzzle": "^7.8",
+        "inertiajs/inertia-laravel": "^2.0",
+        "laravel/framework": "^13.0",
+        "laravel/sanctum": "^4.0",
+        "php": "^8.3",
+        "phpoffice/phpspreadsheet": "^4.0"
+    },
+    "require-dev": {
+        "fakerphp/faker": "^1.23",
+        "laravel/pint": "^1.18",
+        "laravel/sail": "^1.35",
+        "mockery/mockery": "^1.6",
+        "nunomaduro/collision": "^8.6",
+        "phpunit/phpunit": "^11.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "Database\\Factories\\": "database/factories/",
+            "Database\\Seeders\\": "database/seeders/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "post-autoload-dump": [
+            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+            "@php artisan package:discover --ansi"
+        ],
+        "post-root-package-install": [
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+        ],
+        "post-create-project-cmd": [
+            "@php artisan key:generate --ansi"
+        ],
+        "dev": [
+            "Composer\\Config::disableProcessTimeout",
+            "npx concurrently -c \"#93c5fd,#c4b5fd,#fdba74\" \"php artisan serve\" \"php artisan queue:listen --tries=1\" \"npm run dev\" --names='server,queue,vite'"
+        ],
+        "test": [
+            "@php artisan config:clear --ansi",
+            "@php artisan test"
+        ],
+        "lint": [
+            "./vendor/bin/pint"
+        ]
+    },
+    "extra": {
+        "laravel": {
+            "dont-discover": []
+        }
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "php-http/discovery": true
+        },
+        "policy": {
+            "advisories": {
+                "block": false
+            }
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
